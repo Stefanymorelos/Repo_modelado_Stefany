@@ -9,3 +9,6 @@ fastapi
 uvicorn[standard]
 httpx
 scipy
+google-cloud-bigquery
+db-dtypes
+pyarrow

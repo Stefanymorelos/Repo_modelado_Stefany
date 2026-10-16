@@ -27,6 +27,8 @@ import numpy as np
 import pandas as pd
 from scipy.stats import ks_2samp
 
+from cargar_datos import cargar_datos
+
 # Columnas numericas y categoricas crudas (las que de verdad llegan en cada
 # peticion al API, antes de cualquier limpieza) sobre las que tiene sentido
 # medir drift. No se incluyen columnas de identificacion ni el target.
@@ -147,7 +149,7 @@ def cargar_datos_para_drift(
     if not ruta_log_predicciones.exists():
         return None
 
-    df_referencia = pd.read_csv(ruta_datos_historicos, sep=";", encoding="utf-8-sig")
+    df_referencia = cargar_datos(ruta_csv=ruta_datos_historicos)  # BigQuery por defecto (ver cargar_datos.py)
     df_nuevo = pd.read_csv(ruta_log_predicciones)
     if df_nuevo.empty:
         return None
