@@ -19,7 +19,8 @@ empírica (ver `analisis_insights.md` y `mlops_pipeline/src/comprension_eda.ipyn
 ```
 Proyecto-Mlops/
 ├── mlops_pipeline/src/
-│   ├── Cargar_datos.ipynb            # lectura del CSV fuente
+│   ├── cargar_datos.py               # ingesta: lee la tabla de BigQuery (Entregable 4)
+│   ├── Cargar_datos.ipynb            # carga inicial del dataset desde BigQuery
 │   ├── comprension_eda.ipynb         # EDA completo, 8 hallazgos de limpieza
 │   ├── ft_engineering.py             # limpieza + variables derivadas + train/test
 │   ├── heuristic_model.py            # modelo de reglas de negocio (baseline)
@@ -37,7 +38,7 @@ Proyecto-Mlops/
 ├── Dockerfile                        # imagen liviana para servir el modelo
 ├── requirements-deploy.txt           # dependencias minimas para la imagen de Docker
 ├── sonar-project.properties
-├── Base_de_datos.csv
+├── tests/datos/muestra_creditos.csv  # muestra de 3.000 creditos, solo para pytest
 ├── requirements.txt
 ├── setup.bat
 └── readme.md
@@ -56,6 +57,24 @@ de integrarse. SonarCloud corre automáticamente en cada push/PR (calidad, segur
 venv\Scripts\Activate.ps1
 pytest tests\ -v --cov=mlops_pipeline --cov-report=term
 ```
+
+### Fuente de datos: BigQuery (Entregable 4)
+
+Los datos ya no se leen de `Base_de_datos.csv`: la fuente es la tabla
+`nb-ret-app-dev-sm.riesgo_credito.creditos` en BigQuery (proyecto de Retail Banking de la
+Landing Zone de NovaBank). Toda la lectura pasa por `cargar_datos.cargar_datos()`; el resto del
+pipeline no cambia, porque la tabla tiene las mismas columnas y tipos que el CSV (se validó
+celda por celda).
+
+```powershell
+gcloud auth application-default login   # una vez, sin llaves JSON
+```
+
+La base completa ya no está en el repositorio: su única fuente es BigQuery. Las pruebas de
+`pytest` usan una muestra de 3.000 créditos (`tests/datos/muestra_creditos.csv`, la fija
+`conftest.py`), para que GitHub Actions corra sin credenciales de Google Cloud.
+Variables opcionales: `FUENTE_DATOS` (`bigquery` por defecto, `csv` para leer un archivo local),
+`BQ_PROYECTO`, `BQ_TABLA` y `RUTA_CSV`.
 
 ---
 
@@ -166,7 +185,7 @@ Jupyter/matplotlib, solo lo necesario para servir):
 docker build -t riesgo-credito-api .
 docker run -d -p 8000:8000 `
   -v "${PWD}/mejor_modelo_final.joblib:/app/mejor_modelo_final.joblib" `
-  -v "${PWD}/Base_de_datos.csv:/app/Base_de_datos.csv" `
+  -v "$env:APPDATA\gcloud:/root/.config/gcloud" `
   --name api-credito riesgo-credito-api
 ```
 

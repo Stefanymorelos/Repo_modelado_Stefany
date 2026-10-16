@@ -36,7 +36,7 @@ def entorno_api(tmp_path_factory):
     from model_training_evaluation import entrenar_y_comparar_modelos
 
     carpeta = tmp_path_factory.mktemp("despliegue")
-    ruta_csv_original = Path(__file__).resolve().parent.parent / "Base_de_datos.csv"
+    ruta_csv_original = Path(__file__).resolve().parent / "datos" / "muestra_creditos.csv"
     ruta_csv_copia = carpeta / "Base_de_datos.csv"
     ruta_csv_copia.write_bytes(ruta_csv_original.read_bytes())
 

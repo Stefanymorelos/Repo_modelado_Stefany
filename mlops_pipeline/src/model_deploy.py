@@ -26,6 +26,8 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 from sklearn.base import clone
 
+from cargar_datos import cargar_datos
+
 try:
     from ft_engineering import pipeline_basemodel
 except ImportError:
@@ -119,7 +121,7 @@ class ServicioPrediccion:
         self.nombre_modelo = ruta_modelo.stem
         self.pipeline_ml = joblib.load(ruta_modelo)
 
-        df_historico = pd.read_csv(ruta_datos_historicos, sep=";", encoding="utf-8-sig")
+        df_historico = cargar_datos(ruta_csv=ruta_datos_historicos)  # BigQuery por defecto (ver cargar_datos.py)
         objetivo = "Pago_atiempo"
         if objetivo in df_historico.columns:
             df_historico = df_historico.drop(columns=[objetivo])

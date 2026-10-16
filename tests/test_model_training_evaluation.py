@@ -197,7 +197,7 @@ class TestIntegracionConPipelineCompleto:
         except ImportError:
             pytest.skip("build_features no esta disponible todavia (requiere PR3 mergeado)")
 
-        ruta_csv = Path(__file__).resolve().parent.parent / "Base_de_datos.csv"
+        ruta_csv = Path(__file__).resolve().parent / "datos" / "muestra_creditos.csv"
         df = pd.read_csv(ruta_csv, sep=";", encoding="utf-8-sig")
         X_train, X_test, y_train, y_test = build_features(df)
 
@@ -227,7 +227,7 @@ class TestIntegracionConPipelineCompleto:
         except ImportError:
             pytest.skip("build_features no esta disponible todavia (requiere PR3 mergeado)")
 
-        ruta_csv = Path(__file__).resolve().parent.parent / "Base_de_datos.csv"
+        ruta_csv = Path(__file__).resolve().parent / "datos" / "muestra_creditos.csv"
         df = pd.read_csv(ruta_csv, sep=";", encoding="utf-8-sig")
 
         ruta_modelo = tmp_path / "modelo_prueba.joblib"
