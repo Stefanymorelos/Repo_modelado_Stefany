@@ -35,6 +35,9 @@ Proyecto-Mlops/
 │   └── modelos/                      # 5 graficas de la comparacion de modelos
 ├── logs/                             # log de predicciones reales del API (se genera solo)
 ├── .github/workflows/build.yml       # CI: pytest + SonarCloud en cada push/PR
+├── Jenkinsfile                       # pipeline de aprobación en Jenkins (Entregable final)
+├── ci/                               # validaciones que corre Jenkins (estructura y métricas)
+├── jenkins/                          # Dockerfile y docker-compose para levantar Jenkins local
 ├── Dockerfile                        # imagen liviana para servir el modelo
 ├── requirements-deploy.txt           # dependencias minimas para la imagen de Docker
 ├── sonar-project.properties
@@ -228,6 +231,13 @@ Actions), no el módulo en sí.*
   en cada Pull Request (`.github/workflows/build.yml`).
 - **83 pruebas unitarias** entre los 6 módulos de código del pipeline, **94% de cobertura
   combinada**, corriendo en segundos.
+- **Jenkins** (Entregable final, Fase 1): pipeline de aprobación definido en `Jenkinsfile`.
+  Clona el repositorio, valida la estructura de carpetas (`ci/validar_estructura.py`), corre las
+  pruebas, entrena y valida las métricas contra umbrales mínimos (`ci/entrenar_y_validar.py`:
+  ROC-AUC ≥ 0.60, recall de mora ≥ 0.30 y desviación del ROC-AUC en CV ≤ 0.06), pide aprobación
+  manual y archiva el modelo. Se dispara solo con cada merge a `master` (revisión cada 2 minutos)
+  y envía un correo con el resultado. Jenkins se levanta con Docker desde `jenkins/`
+  (`docker compose up -d --build`).
 - Cada decisión de limpieza/negocio está documentada con la evidencia que la respalda — nunca se
   imputó, descartó, ni desplegó nada sin poder mostrar por qué.
 
