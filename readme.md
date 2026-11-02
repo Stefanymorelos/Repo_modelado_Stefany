@@ -38,6 +38,8 @@ Proyecto-Mlops/
 ├── Jenkinsfile                       # pipeline de aprobación en Jenkins (Entregable final)
 ├── ci/                               # validaciones que corre Jenkins (estructura y métricas)
 ├── jenkins/                          # Dockerfile y docker-compose para levantar Jenkins local
+├── vertex/                           # entrenamiento en GCP: datos, pipeline de Vertex AI y comparación
+├── reportes_fase2/                   # resultados de la comparación Python vs. Vertex Pipelines vs. AutoML
 ├── Dockerfile                        # imagen liviana para servir el modelo
 ├── requirements-deploy.txt           # dependencias minimas para la imagen de Docker
 ├── sonar-project.properties
@@ -241,6 +243,51 @@ Actions), no el módulo en sí.*
 - Cada decisión de limpieza/negocio está documentada con la evidencia que la respalda — nunca se
   imputó, descartó, ni desplegó nada sin poder mostrar por qué.
 
+## Entrenamiento en Google Cloud con Vertex AI (Entregable final, Fase 2)
+
+Proyecto: `nb-rie-vertex-dev-sm` (unidad Riesgo, ambiente dev, siguiendo la nomenclatura de la
+Landing Zone del Entregable 4), región `us-central1`, con Vertex AI habilitado.
+
+| Paso | Archivo | Qué hace |
+|---|---|---|
+| 1 | `vertex/preparar_datos_vertex.py` | Lee la base desde BigQuery, aplica la limpieza del repo y la partición 75/25 estratificada (`random_state=42`). Sube `riesgo_ml.creditos_vertex` con la columna `split` (TRAIN / VALIDATE / TEST) y entrena la línea base de Python con esa misma partición. |
+| 2 | Consola de Vertex AI | **AutoML Tabular** (clasificación, objetivo AUC ROC, 1 hora nodo, división manual por `split`, exporta las predicciones de TEST a BigQuery). |
+| 3 | `vertex/pipeline_vertex.py` | **Pipeline custom en Vertex AI Pipelines** (Kubeflow v2): `preparar-datos` → 4 modelos en paralelo → `comparar-modelos`. Registra métricas, curva ROC y matriz de confusión. |
+| 4 | `vertex/comparar_resultados.py` | Recalcula todas las métricas con la misma función, sobre las mismas 2.656 filas de prueba, y genera `reportes_fase2/`. |
+
+```powershell
+pip install -r vertex\requirements-vertex.txt
+python vertex\preparar_datos_vertex.py --proyecto nb-rie-vertex-dev-sm
+python vertex\pipeline_vertex.py --proyecto nb-rie-vertex-dev-sm --bucket nb-rie-vertex-dev-sm-vertex
+python vertex\comparar_resultados.py --proyecto nb-rie-vertex-dev-sm --bucket nb-rie-vertex-dev-sm-vertex --tabla-automl nb-rie-vertex-dev-sm.riesgo_ml.automl_predicciones_test
+```
+
+### Resultados (clase positiva = mora, 2.656 créditos de prueba, 125 en mora)
+
+| Enfoque | Mejor modelo | ROC-AUC | IC 95 % (bootstrap) | PR-AUC | Log loss | F1 mora* | Recall mora* |
+|---|---|---|---|---|---|---|---|
+| AutoML Tabular | ensamble de AutoML | **0.673** | 0.622 – 0.718 | **0.121** | **0.180** | 0.153 | 0.152 |
+| Python local | Regresión logística | 0.669 | 0.622 – 0.718 | 0.107 | 0.626 | 0.166 | 0.256 |
+| Vertex Pipelines | Regresión logística | 0.669 | 0.617 – 0.720 | 0.107 | 0.626 | 0.166 | 0.256 |
+
+\* con el umbral que maximiza F1 de cada modelo.
+
+- **Desempeño:** AutoML queda primero, pero la ventaja en ROC-AUC (+0.004) está muy por dentro de
+  la variación del bootstrap (±0.025). Su diferencia real está en las **probabilidades mejor
+  calibradas** (log loss 0.18 frente a 0.63), útiles si el banco usa la probabilidad como score.
+- **Consistencia:** la regresión logística da exactamente el mismo resultado en local y en Vertex
+  Pipelines; Random Forest y Gradient Boosting difieren en centésimas (versiones de librerías y
+  paralelismo). El pipeline es reproducible.
+- **Estabilidad:** la desviación del ROC-AUC en 500 remuestreos está entre 0.024 y 0.028 para todos.
+- **Lectura de la consola de AutoML:** el "ROC AUC 0.968" que muestra Vertex es un promedio micro de
+  ambas clases, dominado por la clase mayoritaria. Para la mora (etiqueta 0) el PR-AUC es 0.119 y, con
+  el umbral 0.5, detecta solo el 2 % de los casos; por eso las métricas se recalculan aquí.
+- **Conclusión:** ni AutoML (2 h, ensamble automático) supera ~0.67 de ROC-AUC: el límite lo ponen
+  los datos disponibles, igual que en el Entregable 3.
+
+Gráficas: `reportes_fase2/fig_01_metricas_mejores.png`, `fig_02_curvas_roc.png`,
+`fig_03_estabilidad_bootstrap.png` y `fig_04_local_vs_vertex.png`.
+
 ## Conclusiones y recomendaciones de negocio
 
 - El **score de la central de riesgo** sigue siendo, por lejos, la señal más confiable disponible
@@ -254,4 +301,4 @@ Actions), no el módulo en sí.*
   no como aprobación/negación automática — la misma conclusión honesta a la que llegó el análisis
   más riguroso que revisamos de un compañero del curso.
 
-> Pipeline de Jenkins verificado: se dispara autom�ticamente con cada merge a master.
+> Pipeline de Jenkins verificado: se dispara automáticamente con cada merge a master.

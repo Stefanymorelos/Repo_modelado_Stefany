@@ -1,0 +1,762 @@
+{
+  "components": {
+    "comp-comparar-modelos": {
+      "executorLabel": "exec-comparar-modelos",
+      "inputDefinitions": {
+        "artifacts": {
+          "pred_1": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "pred_2": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "pred_3": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "pred_4": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "res_1": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "res_2": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "res_3": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "res_4": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "bucket": {
+            "parameterType": "STRING"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "metricas": {
+            "artifactType": {
+              "schemaTitle": "system.Metrics",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "tabla": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "Output": {
+            "parameterType": "STRING"
+          }
+        }
+      }
+    },
+    "comp-entrenar-evaluar": {
+      "executorLabel": "exec-entrenar-evaluar",
+      "inputDefinitions": {
+        "artifacts": {
+          "entrenamiento": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "prueba": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "nombre_modelo": {
+            "parameterType": "STRING"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "metricas": {
+            "artifactType": {
+              "schemaTitle": "system.Metrics",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "metricas_clasificacion": {
+            "artifactType": {
+              "schemaTitle": "system.ClassificationMetrics",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "modelo": {
+            "artifactType": {
+              "schemaTitle": "system.Model",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "predicciones": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "resumen": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-entrenar-evaluar-2": {
+      "executorLabel": "exec-entrenar-evaluar-2",
+      "inputDefinitions": {
+        "artifacts": {
+          "entrenamiento": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "prueba": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "nombre_modelo": {
+            "parameterType": "STRING"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "metricas": {
+            "artifactType": {
+              "schemaTitle": "system.Metrics",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "metricas_clasificacion": {
+            "artifactType": {
+              "schemaTitle": "system.ClassificationMetrics",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "modelo": {
+            "artifactType": {
+              "schemaTitle": "system.Model",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "predicciones": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "resumen": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-entrenar-evaluar-3": {
+      "executorLabel": "exec-entrenar-evaluar-3",
+      "inputDefinitions": {
+        "artifacts": {
+          "entrenamiento": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "prueba": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "nombre_modelo": {
+            "parameterType": "STRING"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "metricas": {
+            "artifactType": {
+              "schemaTitle": "system.Metrics",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "metricas_clasificacion": {
+            "artifactType": {
+              "schemaTitle": "system.ClassificationMetrics",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "modelo": {
+            "artifactType": {
+              "schemaTitle": "system.Model",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "predicciones": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "resumen": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-entrenar-evaluar-4": {
+      "executorLabel": "exec-entrenar-evaluar-4",
+      "inputDefinitions": {
+        "artifacts": {
+          "entrenamiento": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "prueba": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "nombre_modelo": {
+            "parameterType": "STRING"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "metricas": {
+            "artifactType": {
+              "schemaTitle": "system.Metrics",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "metricas_clasificacion": {
+            "artifactType": {
+              "schemaTitle": "system.ClassificationMetrics",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "modelo": {
+            "artifactType": {
+              "schemaTitle": "system.Model",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "predicciones": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "resumen": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    },
+    "comp-preparar-datos": {
+      "executorLabel": "exec-preparar-datos",
+      "inputDefinitions": {
+        "parameters": {
+          "proyecto": {
+            "parameterType": "STRING"
+          },
+          "tabla_bq": {
+            "parameterType": "STRING"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "entrenamiento": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "prueba": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        }
+      }
+    }
+  },
+  "deploymentSpec": {
+    "executors": {
+      "exec-comparar-modelos": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "comparar_modelos"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet --no-warn-script-location 'numpy==2.1.3' 'pandas==2.2.3' 'scikit-learn==1.5.2' 'joblib==1.4.2' 'pyarrow==18.1.0' 'db-dtypes==1.3.1' 'google-cloud-bigquery==3.27.0' 'google-cloud-storage==2.19.0'  &&  python3 -m pip install --quiet --no-warn-script-location 'kfp==2.18.0' '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\n\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\n_KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef comparar_modelos(\n    bucket: str,\n    res_1: Input[Dataset], res_2: Input[Dataset], res_3: Input[Dataset], res_4: Input[Dataset],\n    pred_1: Input[Dataset], pred_2: Input[Dataset], pred_3: Input[Dataset], pred_4: Input[Dataset],\n    tabla: Output[Dataset],\n    metricas: Output[Metrics],\n) -> str:\n    import json\n\n    import pandas as pd\n    from google.cloud import storage\n\n    filas = [json.load(open(r.path)) for r in (res_1, res_2, res_3, res_4)]\n    comparacion = pd.DataFrame(filas).sort_values(\"roc_auc\", ascending=False)\n    comparacion.to_csv(tabla.path, index=False)\n    mejor = comparacion.iloc[0]\n    metricas.log_metric(\"mejor_roc_auc\", float(mejor[\"roc_auc\"]))\n    metricas.metadata[\"mejor_modelo\"] = str(mejor[\"modelo\"])\n\n    preds = None\n    for p in (pred_1, pred_2, pred_3, pred_4):\n        df = pd.read_csv(p.path)\n        preds = df if preds is None else preds.merge(df, on=[\"id_credito\", \"y_real\"])\n\n    cliente = storage.Client()\n    destino = cliente.bucket(bucket)\n    destino.blob(\"fase2/vertex_pipeline/comparacion_modelos.csv\").upload_from_string(\n        comparacion.to_csv(index=False), \"text/csv\")\n    destino.blob(\"fase2/vertex_pipeline/predicciones_test.csv\").upload_from_string(\n        preds.to_csv(index=False), \"text/csv\")\n    return str(mejor[\"modelo\"])\n\n"
+          ],
+          "image": "python:3.11-slim"
+        }
+      },
+      "exec-entrenar-evaluar": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "entrenar_evaluar"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet --no-warn-script-location 'numpy==2.1.3' 'pandas==2.2.3' 'scikit-learn==1.5.2' 'joblib==1.4.2' 'pyarrow==18.1.0' 'db-dtypes==1.3.1' 'google-cloud-bigquery==3.27.0' 'google-cloud-storage==2.19.0'  &&  python3 -m pip install --quiet --no-warn-script-location 'kfp==2.18.0' '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\n\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\n_KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef entrenar_evaluar(\n    nombre_modelo: str,\n    entrenamiento: Input[Dataset],\n    prueba: Input[Dataset],\n    modelo: Output[Model],\n    metricas: Output[Metrics],\n    metricas_clasificacion: Output[ClassificationMetrics],\n    predicciones: Output[Dataset],\n    resumen: Output[Dataset],\n):\n    import json\n    import time\n\n    import joblib\n    import numpy as np\n    import pandas as pd\n    from sklearn.compose import ColumnTransformer\n    from sklearn.ensemble import HistGradientBoostingClassifier, RandomForestClassifier\n    from sklearn.impute import SimpleImputer\n    from sklearn.linear_model import LogisticRegression\n    from sklearn.metrics import (accuracy_score, average_precision_score, confusion_matrix, f1_score,\n                                 log_loss, precision_score, recall_score, roc_auc_score, roc_curve)\n    from sklearn.model_selection import StratifiedKFold, cross_val_score\n    from sklearn.pipeline import Pipeline\n    from sklearn.preprocessing import OneHotEncoder, StandardScaler\n    from sklearn.svm import SVC\n\n    semilla = 42\n    objetivo = \"Pago_atiempo\"\n    categoricas = [\"tipo_laboral\", \"tipo_credito_agrupado\", \"tendencia_ingresos\"]\n\n    train = pd.read_csv(entrenamiento.path, dtype={c: str for c in categoricas})\n    test = pd.read_csv(prueba.path, dtype={c: str for c in categoricas})\n    numericas = [c for c in train.columns if c not in categoricas + [objetivo, \"split\", \"id_credito\"]]\n    X_train, y_train = train[numericas + categoricas], train[objetivo].astype(int)\n    X_test, y_test = test[numericas + categoricas], test[objetivo].astype(int)\n\n    estimadores = {\n        \"regresion_logistica\": LogisticRegression(max_iter=2000, class_weight=\"balanced\", random_state=semilla),\n        \"random_forest\": RandomForestClassifier(n_estimators=300, class_weight=\"balanced\",\n                                                random_state=semilla, n_jobs=-1),\n        \"gradient_boosting\": HistGradientBoostingClassifier(class_weight=\"balanced\", random_state=semilla),\n        \"svm_rbf\": SVC(kernel=\"rbf\", class_weight=\"balanced\", probability=True, random_state=semilla),\n    }\n    preprocesador = ColumnTransformer([\n        (\"num\", Pipeline([(\"imputer\", SimpleImputer(strategy=\"median\")), (\"scaler\", StandardScaler())]), numericas),\n        (\"cat\", Pipeline([(\"imputer\", SimpleImputer(strategy=\"most_frequent\")),\n                          (\"onehot\", OneHotEncoder(handle_unknown=\"ignore\"))]), categoricas),\n    ])\n    pipe = Pipeline([(\"preprocesador\", preprocesador), (\"modelo\", estimadores[nombre_modelo])])\n\n    # Consistencia: validacion cruzada estratificada de 5 folds sobre entrenamiento.\n    cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=semilla)\n    auc_cv = cross_val_score(pipe, X_train, y_train, cv=cv, scoring=\"roc_auc\")\n\n    inicio = time.perf_counter()\n    pipe.fit(X_train, y_train)\n    tiempo_ajuste = time.perf_counter() - inicio\n\n    # La clase de interes es la mora (Pago_atiempo = 0).\n    proba_mora = 1 - pipe.predict_proba(X_test)[:, 1]\n    es_mora = (y_test == 0).astype(int).values\n    pred_mora = (pipe.predict(X_test) == 0).astype(int)\n\n    valores = {\n        \"accuracy\": accuracy_score(es_mora, pred_mora),\n        \"precision_mora\": precision_score(es_mora, pred_mora, zero_division=0),\n        \"recall_mora\": recall_score(es_mora, pred_mora, zero_division=0),\n        \"f1_mora\": f1_score(es_mora, pred_mora, zero_division=0),\n        \"roc_auc\": roc_auc_score(es_mora, proba_mora),\n        \"pr_auc\": average_precision_score(es_mora, proba_mora),\n        \"log_loss\": log_loss(es_mora, np.clip(proba_mora, 1e-6, 1 - 1e-6)),\n        \"rmse_probabilidades\": float(np.sqrt(np.mean((proba_mora - es_mora) ** 2))),\n        \"roc_auc_cv_media\": float(auc_cv.mean()),\n        \"roc_auc_cv_std\": float(auc_cv.std()),\n        \"tiempo_ajuste_s\": tiempo_ajuste,\n    }\n    for clave, valor in valores.items():\n        metricas.log_metric(clave, round(float(valor), 4))\n\n    fpr, tpr, umbrales = roc_curve(es_mora, proba_mora)\n    paso = max(1, len(fpr) // 150)\n    metricas_clasificacion.log_roc_curve(\n        fpr[::paso].tolist(), tpr[::paso].tolist(), np.clip(umbrales[::paso], 0, 1).tolist())\n    metricas_clasificacion.log_confusion_matrix(\n        [\"al_dia\", \"mora\"], confusion_matrix(es_mora, pred_mora, labels=[0, 1]).tolist())\n\n    joblib.dump(pipe, modelo.path)\n    modelo.metadata[\"framework\"] = \"scikit-learn\"\n    pd.DataFrame({\"id_credito\": test[\"id_credito\"], \"y_real\": y_test,\n                  f\"proba_mora__{nombre_modelo}\": proba_mora}).to_csv(predicciones.path, index=False)\n    with open(resumen.path, \"w\") as f:\n        json.dump({\"modelo\": nombre_modelo, **{k: round(float(v), 4) for k, v in valores.items()}}, f)\n\n"
+          ],
+          "image": "python:3.11-slim",
+          "resources": {
+            "cpuLimit": 4.0,
+            "memoryLimit": 16.0,
+            "resourceCpuLimit": "4",
+            "resourceMemoryLimit": "16G"
+          }
+        }
+      },
+      "exec-entrenar-evaluar-2": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "entrenar_evaluar"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet --no-warn-script-location 'numpy==2.1.3' 'pandas==2.2.3' 'scikit-learn==1.5.2' 'joblib==1.4.2' 'pyarrow==18.1.0' 'db-dtypes==1.3.1' 'google-cloud-bigquery==3.27.0' 'google-cloud-storage==2.19.0'  &&  python3 -m pip install --quiet --no-warn-script-location 'kfp==2.18.0' '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\n\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\n_KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef entrenar_evaluar(\n    nombre_modelo: str,\n    entrenamiento: Input[Dataset],\n    prueba: Input[Dataset],\n    modelo: Output[Model],\n    metricas: Output[Metrics],\n    metricas_clasificacion: Output[ClassificationMetrics],\n    predicciones: Output[Dataset],\n    resumen: Output[Dataset],\n):\n    import json\n    import time\n\n    import joblib\n    import numpy as np\n    import pandas as pd\n    from sklearn.compose import ColumnTransformer\n    from sklearn.ensemble import HistGradientBoostingClassifier, RandomForestClassifier\n    from sklearn.impute import SimpleImputer\n    from sklearn.linear_model import LogisticRegression\n    from sklearn.metrics import (accuracy_score, average_precision_score, confusion_matrix, f1_score,\n                                 log_loss, precision_score, recall_score, roc_auc_score, roc_curve)\n    from sklearn.model_selection import StratifiedKFold, cross_val_score\n    from sklearn.pipeline import Pipeline\n    from sklearn.preprocessing import OneHotEncoder, StandardScaler\n    from sklearn.svm import SVC\n\n    semilla = 42\n    objetivo = \"Pago_atiempo\"\n    categoricas = [\"tipo_laboral\", \"tipo_credito_agrupado\", \"tendencia_ingresos\"]\n\n    train = pd.read_csv(entrenamiento.path, dtype={c: str for c in categoricas})\n    test = pd.read_csv(prueba.path, dtype={c: str for c in categoricas})\n    numericas = [c for c in train.columns if c not in categoricas + [objetivo, \"split\", \"id_credito\"]]\n    X_train, y_train = train[numericas + categoricas], train[objetivo].astype(int)\n    X_test, y_test = test[numericas + categoricas], test[objetivo].astype(int)\n\n    estimadores = {\n        \"regresion_logistica\": LogisticRegression(max_iter=2000, class_weight=\"balanced\", random_state=semilla),\n        \"random_forest\": RandomForestClassifier(n_estimators=300, class_weight=\"balanced\",\n                                                random_state=semilla, n_jobs=-1),\n        \"gradient_boosting\": HistGradientBoostingClassifier(class_weight=\"balanced\", random_state=semilla),\n        \"svm_rbf\": SVC(kernel=\"rbf\", class_weight=\"balanced\", probability=True, random_state=semilla),\n    }\n    preprocesador = ColumnTransformer([\n        (\"num\", Pipeline([(\"imputer\", SimpleImputer(strategy=\"median\")), (\"scaler\", StandardScaler())]), numericas),\n        (\"cat\", Pipeline([(\"imputer\", SimpleImputer(strategy=\"most_frequent\")),\n                          (\"onehot\", OneHotEncoder(handle_unknown=\"ignore\"))]), categoricas),\n    ])\n    pipe = Pipeline([(\"preprocesador\", preprocesador), (\"modelo\", estimadores[nombre_modelo])])\n\n    # Consistencia: validacion cruzada estratificada de 5 folds sobre entrenamiento.\n    cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=semilla)\n    auc_cv = cross_val_score(pipe, X_train, y_train, cv=cv, scoring=\"roc_auc\")\n\n    inicio = time.perf_counter()\n    pipe.fit(X_train, y_train)\n    tiempo_ajuste = time.perf_counter() - inicio\n\n    # La clase de interes es la mora (Pago_atiempo = 0).\n    proba_mora = 1 - pipe.predict_proba(X_test)[:, 1]\n    es_mora = (y_test == 0).astype(int).values\n    pred_mora = (pipe.predict(X_test) == 0).astype(int)\n\n    valores = {\n        \"accuracy\": accuracy_score(es_mora, pred_mora),\n        \"precision_mora\": precision_score(es_mora, pred_mora, zero_division=0),\n        \"recall_mora\": recall_score(es_mora, pred_mora, zero_division=0),\n        \"f1_mora\": f1_score(es_mora, pred_mora, zero_division=0),\n        \"roc_auc\": roc_auc_score(es_mora, proba_mora),\n        \"pr_auc\": average_precision_score(es_mora, proba_mora),\n        \"log_loss\": log_loss(es_mora, np.clip(proba_mora, 1e-6, 1 - 1e-6)),\n        \"rmse_probabilidades\": float(np.sqrt(np.mean((proba_mora - es_mora) ** 2))),\n        \"roc_auc_cv_media\": float(auc_cv.mean()),\n        \"roc_auc_cv_std\": float(auc_cv.std()),\n        \"tiempo_ajuste_s\": tiempo_ajuste,\n    }\n    for clave, valor in valores.items():\n        metricas.log_metric(clave, round(float(valor), 4))\n\n    fpr, tpr, umbrales = roc_curve(es_mora, proba_mora)\n    paso = max(1, len(fpr) // 150)\n    metricas_clasificacion.log_roc_curve(\n        fpr[::paso].tolist(), tpr[::paso].tolist(), np.clip(umbrales[::paso], 0, 1).tolist())\n    metricas_clasificacion.log_confusion_matrix(\n        [\"al_dia\", \"mora\"], confusion_matrix(es_mora, pred_mora, labels=[0, 1]).tolist())\n\n    joblib.dump(pipe, modelo.path)\n    modelo.metadata[\"framework\"] = \"scikit-learn\"\n    pd.DataFrame({\"id_credito\": test[\"id_credito\"], \"y_real\": y_test,\n                  f\"proba_mora__{nombre_modelo}\": proba_mora}).to_csv(predicciones.path, index=False)\n    with open(resumen.path, \"w\") as f:\n        json.dump({\"modelo\": nombre_modelo, **{k: round(float(v), 4) for k, v in valores.items()}}, f)\n\n"
+          ],
+          "image": "python:3.11-slim",
+          "resources": {
+            "cpuLimit": 4.0,
+            "memoryLimit": 16.0,
+            "resourceCpuLimit": "4",
+            "resourceMemoryLimit": "16G"
+          }
+        }
+      },
+      "exec-entrenar-evaluar-3": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "entrenar_evaluar"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet --no-warn-script-location 'numpy==2.1.3' 'pandas==2.2.3' 'scikit-learn==1.5.2' 'joblib==1.4.2' 'pyarrow==18.1.0' 'db-dtypes==1.3.1' 'google-cloud-bigquery==3.27.0' 'google-cloud-storage==2.19.0'  &&  python3 -m pip install --quiet --no-warn-script-location 'kfp==2.18.0' '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\n\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\n_KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef entrenar_evaluar(\n    nombre_modelo: str,\n    entrenamiento: Input[Dataset],\n    prueba: Input[Dataset],\n    modelo: Output[Model],\n    metricas: Output[Metrics],\n    metricas_clasificacion: Output[ClassificationMetrics],\n    predicciones: Output[Dataset],\n    resumen: Output[Dataset],\n):\n    import json\n    import time\n\n    import joblib\n    import numpy as np\n    import pandas as pd\n    from sklearn.compose import ColumnTransformer\n    from sklearn.ensemble import HistGradientBoostingClassifier, RandomForestClassifier\n    from sklearn.impute import SimpleImputer\n    from sklearn.linear_model import LogisticRegression\n    from sklearn.metrics import (accuracy_score, average_precision_score, confusion_matrix, f1_score,\n                                 log_loss, precision_score, recall_score, roc_auc_score, roc_curve)\n    from sklearn.model_selection import StratifiedKFold, cross_val_score\n    from sklearn.pipeline import Pipeline\n    from sklearn.preprocessing import OneHotEncoder, StandardScaler\n    from sklearn.svm import SVC\n\n    semilla = 42\n    objetivo = \"Pago_atiempo\"\n    categoricas = [\"tipo_laboral\", \"tipo_credito_agrupado\", \"tendencia_ingresos\"]\n\n    train = pd.read_csv(entrenamiento.path, dtype={c: str for c in categoricas})\n    test = pd.read_csv(prueba.path, dtype={c: str for c in categoricas})\n    numericas = [c for c in train.columns if c not in categoricas + [objetivo, \"split\", \"id_credito\"]]\n    X_train, y_train = train[numericas + categoricas], train[objetivo].astype(int)\n    X_test, y_test = test[numericas + categoricas], test[objetivo].astype(int)\n\n    estimadores = {\n        \"regresion_logistica\": LogisticRegression(max_iter=2000, class_weight=\"balanced\", random_state=semilla),\n        \"random_forest\": RandomForestClassifier(n_estimators=300, class_weight=\"balanced\",\n                                                random_state=semilla, n_jobs=-1),\n        \"gradient_boosting\": HistGradientBoostingClassifier(class_weight=\"balanced\", random_state=semilla),\n        \"svm_rbf\": SVC(kernel=\"rbf\", class_weight=\"balanced\", probability=True, random_state=semilla),\n    }\n    preprocesador = ColumnTransformer([\n        (\"num\", Pipeline([(\"imputer\", SimpleImputer(strategy=\"median\")), (\"scaler\", StandardScaler())]), numericas),\n        (\"cat\", Pipeline([(\"imputer\", SimpleImputer(strategy=\"most_frequent\")),\n                          (\"onehot\", OneHotEncoder(handle_unknown=\"ignore\"))]), categoricas),\n    ])\n    pipe = Pipeline([(\"preprocesador\", preprocesador), (\"modelo\", estimadores[nombre_modelo])])\n\n    # Consistencia: validacion cruzada estratificada de 5 folds sobre entrenamiento.\n    cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=semilla)\n    auc_cv = cross_val_score(pipe, X_train, y_train, cv=cv, scoring=\"roc_auc\")\n\n    inicio = time.perf_counter()\n    pipe.fit(X_train, y_train)\n    tiempo_ajuste = time.perf_counter() - inicio\n\n    # La clase de interes es la mora (Pago_atiempo = 0).\n    proba_mora = 1 - pipe.predict_proba(X_test)[:, 1]\n    es_mora = (y_test == 0).astype(int).values\n    pred_mora = (pipe.predict(X_test) == 0).astype(int)\n\n    valores = {\n        \"accuracy\": accuracy_score(es_mora, pred_mora),\n        \"precision_mora\": precision_score(es_mora, pred_mora, zero_division=0),\n        \"recall_mora\": recall_score(es_mora, pred_mora, zero_division=0),\n        \"f1_mora\": f1_score(es_mora, pred_mora, zero_division=0),\n        \"roc_auc\": roc_auc_score(es_mora, proba_mora),\n        \"pr_auc\": average_precision_score(es_mora, proba_mora),\n        \"log_loss\": log_loss(es_mora, np.clip(proba_mora, 1e-6, 1 - 1e-6)),\n        \"rmse_probabilidades\": float(np.sqrt(np.mean((proba_mora - es_mora) ** 2))),\n        \"roc_auc_cv_media\": float(auc_cv.mean()),\n        \"roc_auc_cv_std\": float(auc_cv.std()),\n        \"tiempo_ajuste_s\": tiempo_ajuste,\n    }\n    for clave, valor in valores.items():\n        metricas.log_metric(clave, round(float(valor), 4))\n\n    fpr, tpr, umbrales = roc_curve(es_mora, proba_mora)\n    paso = max(1, len(fpr) // 150)\n    metricas_clasificacion.log_roc_curve(\n        fpr[::paso].tolist(), tpr[::paso].tolist(), np.clip(umbrales[::paso], 0, 1).tolist())\n    metricas_clasificacion.log_confusion_matrix(\n        [\"al_dia\", \"mora\"], confusion_matrix(es_mora, pred_mora, labels=[0, 1]).tolist())\n\n    joblib.dump(pipe, modelo.path)\n    modelo.metadata[\"framework\"] = \"scikit-learn\"\n    pd.DataFrame({\"id_credito\": test[\"id_credito\"], \"y_real\": y_test,\n                  f\"proba_mora__{nombre_modelo}\": proba_mora}).to_csv(predicciones.path, index=False)\n    with open(resumen.path, \"w\") as f:\n        json.dump({\"modelo\": nombre_modelo, **{k: round(float(v), 4) for k, v in valores.items()}}, f)\n\n"
+          ],
+          "image": "python:3.11-slim",
+          "resources": {
+            "cpuLimit": 4.0,
+            "memoryLimit": 16.0,
+            "resourceCpuLimit": "4",
+            "resourceMemoryLimit": "16G"
+          }
+        }
+      },
+      "exec-entrenar-evaluar-4": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "entrenar_evaluar"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet --no-warn-script-location 'numpy==2.1.3' 'pandas==2.2.3' 'scikit-learn==1.5.2' 'joblib==1.4.2' 'pyarrow==18.1.0' 'db-dtypes==1.3.1' 'google-cloud-bigquery==3.27.0' 'google-cloud-storage==2.19.0'  &&  python3 -m pip install --quiet --no-warn-script-location 'kfp==2.18.0' '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\n\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\n_KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef entrenar_evaluar(\n    nombre_modelo: str,\n    entrenamiento: Input[Dataset],\n    prueba: Input[Dataset],\n    modelo: Output[Model],\n    metricas: Output[Metrics],\n    metricas_clasificacion: Output[ClassificationMetrics],\n    predicciones: Output[Dataset],\n    resumen: Output[Dataset],\n):\n    import json\n    import time\n\n    import joblib\n    import numpy as np\n    import pandas as pd\n    from sklearn.compose import ColumnTransformer\n    from sklearn.ensemble import HistGradientBoostingClassifier, RandomForestClassifier\n    from sklearn.impute import SimpleImputer\n    from sklearn.linear_model import LogisticRegression\n    from sklearn.metrics import (accuracy_score, average_precision_score, confusion_matrix, f1_score,\n                                 log_loss, precision_score, recall_score, roc_auc_score, roc_curve)\n    from sklearn.model_selection import StratifiedKFold, cross_val_score\n    from sklearn.pipeline import Pipeline\n    from sklearn.preprocessing import OneHotEncoder, StandardScaler\n    from sklearn.svm import SVC\n\n    semilla = 42\n    objetivo = \"Pago_atiempo\"\n    categoricas = [\"tipo_laboral\", \"tipo_credito_agrupado\", \"tendencia_ingresos\"]\n\n    train = pd.read_csv(entrenamiento.path, dtype={c: str for c in categoricas})\n    test = pd.read_csv(prueba.path, dtype={c: str for c in categoricas})\n    numericas = [c for c in train.columns if c not in categoricas + [objetivo, \"split\", \"id_credito\"]]\n    X_train, y_train = train[numericas + categoricas], train[objetivo].astype(int)\n    X_test, y_test = test[numericas + categoricas], test[objetivo].astype(int)\n\n    estimadores = {\n        \"regresion_logistica\": LogisticRegression(max_iter=2000, class_weight=\"balanced\", random_state=semilla),\n        \"random_forest\": RandomForestClassifier(n_estimators=300, class_weight=\"balanced\",\n                                                random_state=semilla, n_jobs=-1),\n        \"gradient_boosting\": HistGradientBoostingClassifier(class_weight=\"balanced\", random_state=semilla),\n        \"svm_rbf\": SVC(kernel=\"rbf\", class_weight=\"balanced\", probability=True, random_state=semilla),\n    }\n    preprocesador = ColumnTransformer([\n        (\"num\", Pipeline([(\"imputer\", SimpleImputer(strategy=\"median\")), (\"scaler\", StandardScaler())]), numericas),\n        (\"cat\", Pipeline([(\"imputer\", SimpleImputer(strategy=\"most_frequent\")),\n                          (\"onehot\", OneHotEncoder(handle_unknown=\"ignore\"))]), categoricas),\n    ])\n    pipe = Pipeline([(\"preprocesador\", preprocesador), (\"modelo\", estimadores[nombre_modelo])])\n\n    # Consistencia: validacion cruzada estratificada de 5 folds sobre entrenamiento.\n    cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=semilla)\n    auc_cv = cross_val_score(pipe, X_train, y_train, cv=cv, scoring=\"roc_auc\")\n\n    inicio = time.perf_counter()\n    pipe.fit(X_train, y_train)\n    tiempo_ajuste = time.perf_counter() - inicio\n\n    # La clase de interes es la mora (Pago_atiempo = 0).\n    proba_mora = 1 - pipe.predict_proba(X_test)[:, 1]\n    es_mora = (y_test == 0).astype(int).values\n    pred_mora = (pipe.predict(X_test) == 0).astype(int)\n\n    valores = {\n        \"accuracy\": accuracy_score(es_mora, pred_mora),\n        \"precision_mora\": precision_score(es_mora, pred_mora, zero_division=0),\n        \"recall_mora\": recall_score(es_mora, pred_mora, zero_division=0),\n        \"f1_mora\": f1_score(es_mora, pred_mora, zero_division=0),\n        \"roc_auc\": roc_auc_score(es_mora, proba_mora),\n        \"pr_auc\": average_precision_score(es_mora, proba_mora),\n        \"log_loss\": log_loss(es_mora, np.clip(proba_mora, 1e-6, 1 - 1e-6)),\n        \"rmse_probabilidades\": float(np.sqrt(np.mean((proba_mora - es_mora) ** 2))),\n        \"roc_auc_cv_media\": float(auc_cv.mean()),\n        \"roc_auc_cv_std\": float(auc_cv.std()),\n        \"tiempo_ajuste_s\": tiempo_ajuste,\n    }\n    for clave, valor in valores.items():\n        metricas.log_metric(clave, round(float(valor), 4))\n\n    fpr, tpr, umbrales = roc_curve(es_mora, proba_mora)\n    paso = max(1, len(fpr) // 150)\n    metricas_clasificacion.log_roc_curve(\n        fpr[::paso].tolist(), tpr[::paso].tolist(), np.clip(umbrales[::paso], 0, 1).tolist())\n    metricas_clasificacion.log_confusion_matrix(\n        [\"al_dia\", \"mora\"], confusion_matrix(es_mora, pred_mora, labels=[0, 1]).tolist())\n\n    joblib.dump(pipe, modelo.path)\n    modelo.metadata[\"framework\"] = \"scikit-learn\"\n    pd.DataFrame({\"id_credito\": test[\"id_credito\"], \"y_real\": y_test,\n                  f\"proba_mora__{nombre_modelo}\": proba_mora}).to_csv(predicciones.path, index=False)\n    with open(resumen.path, \"w\") as f:\n        json.dump({\"modelo\": nombre_modelo, **{k: round(float(v), 4) for k, v in valores.items()}}, f)\n\n"
+          ],
+          "image": "python:3.11-slim",
+          "resources": {
+            "cpuLimit": 4.0,
+            "memoryLimit": 16.0,
+            "resourceCpuLimit": "4",
+            "resourceMemoryLimit": "16G"
+          }
+        }
+      },
+      "exec-preparar-datos": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "preparar_datos"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet --no-warn-script-location 'numpy==2.1.3' 'pandas==2.2.3' 'scikit-learn==1.5.2' 'joblib==1.4.2' 'pyarrow==18.1.0' 'db-dtypes==1.3.1' 'google-cloud-bigquery==3.27.0' 'google-cloud-storage==2.19.0'  &&  python3 -m pip install --quiet --no-warn-script-location 'kfp==2.18.0' '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\n\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\n_KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef preparar_datos(proyecto: str, tabla_bq: str, entrenamiento: Output[Dataset], prueba: Output[Dataset]):\n    from google.cloud import bigquery\n\n    df = bigquery.Client(project=proyecto).query(f\"SELECT * FROM `{tabla_bq}`\").to_dataframe()\n    df = df.sort_values(\"id_credito\").reset_index(drop=True)\n    df[df[\"split\"] != \"TEST\"].to_csv(entrenamiento.path, index=False)\n    df[df[\"split\"] == \"TEST\"].to_csv(prueba.path, index=False)\n    entrenamiento.metadata[\"filas\"] = int((df[\"split\"] != \"TEST\").sum())\n    prueba.metadata[\"filas\"] = int((df[\"split\"] == \"TEST\").sum())\n\n"
+          ],
+          "image": "python:3.11-slim"
+        }
+      }
+    }
+  },
+  "pipelineInfo": {
+    "description": "Entrenamiento y comparacion de modelos de riesgo de credito (scikit-learn)",
+    "name": "riesgo-credito-pipeline-custom"
+  },
+  "root": {
+    "dag": {
+      "tasks": {
+        "comparar-modelos": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-comparar-modelos"
+          },
+          "dependentTasks": [
+            "entrenar-evaluar",
+            "entrenar-evaluar-2",
+            "entrenar-evaluar-3",
+            "entrenar-evaluar-4"
+          ],
+          "inputs": {
+            "artifacts": {
+              "pred_1": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "predicciones",
+                  "producerTask": "entrenar-evaluar"
+                }
+              },
+              "pred_2": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "predicciones",
+                  "producerTask": "entrenar-evaluar-2"
+                }
+              },
+              "pred_3": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "predicciones",
+                  "producerTask": "entrenar-evaluar-3"
+                }
+              },
+              "pred_4": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "predicciones",
+                  "producerTask": "entrenar-evaluar-4"
+                }
+              },
+              "res_1": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "resumen",
+                  "producerTask": "entrenar-evaluar"
+                }
+              },
+              "res_2": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "resumen",
+                  "producerTask": "entrenar-evaluar-2"
+                }
+              },
+              "res_3": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "resumen",
+                  "producerTask": "entrenar-evaluar-3"
+                }
+              },
+              "res_4": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "resumen",
+                  "producerTask": "entrenar-evaluar-4"
+                }
+              }
+            },
+            "parameters": {
+              "bucket": {
+                "componentInputParameter": "bucket"
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "comparar-modelos"
+          }
+        },
+        "entrenar-evaluar": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-entrenar-evaluar"
+          },
+          "dependentTasks": [
+            "preparar-datos"
+          ],
+          "inputs": {
+            "artifacts": {
+              "entrenamiento": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "entrenamiento",
+                  "producerTask": "preparar-datos"
+                }
+              },
+              "prueba": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "prueba",
+                  "producerTask": "preparar-datos"
+                }
+              }
+            },
+            "parameters": {
+              "nombre_modelo": {
+                "runtimeValue": {
+                  "constant": "regresion_logistica"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "entrenar-regresion_logistica"
+          }
+        },
+        "entrenar-evaluar-2": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-entrenar-evaluar-2"
+          },
+          "dependentTasks": [
+            "preparar-datos"
+          ],
+          "inputs": {
+            "artifacts": {
+              "entrenamiento": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "entrenamiento",
+                  "producerTask": "preparar-datos"
+                }
+              },
+              "prueba": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "prueba",
+                  "producerTask": "preparar-datos"
+                }
+              }
+            },
+            "parameters": {
+              "nombre_modelo": {
+                "runtimeValue": {
+                  "constant": "random_forest"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "entrenar-random_forest"
+          }
+        },
+        "entrenar-evaluar-3": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-entrenar-evaluar-3"
+          },
+          "dependentTasks": [
+            "preparar-datos"
+          ],
+          "inputs": {
+            "artifacts": {
+              "entrenamiento": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "entrenamiento",
+                  "producerTask": "preparar-datos"
+                }
+              },
+              "prueba": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "prueba",
+                  "producerTask": "preparar-datos"
+                }
+              }
+            },
+            "parameters": {
+              "nombre_modelo": {
+                "runtimeValue": {
+                  "constant": "gradient_boosting"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "entrenar-gradient_boosting"
+          }
+        },
+        "entrenar-evaluar-4": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-entrenar-evaluar-4"
+          },
+          "dependentTasks": [
+            "preparar-datos"
+          ],
+          "inputs": {
+            "artifacts": {
+              "entrenamiento": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "entrenamiento",
+                  "producerTask": "preparar-datos"
+                }
+              },
+              "prueba": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "prueba",
+                  "producerTask": "preparar-datos"
+                }
+              }
+            },
+            "parameters": {
+              "nombre_modelo": {
+                "runtimeValue": {
+                  "constant": "svm_rbf"
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "entrenar-svm_rbf"
+          }
+        },
+        "preparar-datos": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-preparar-datos"
+          },
+          "inputs": {
+            "parameters": {
+              "proyecto": {
+                "componentInputParameter": "proyecto"
+              },
+              "tabla_bq": {
+                "componentInputParameter": "tabla_bq"
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "preparar-datos"
+          }
+        }
+      }
+    },
+    "inputDefinitions": {
+      "parameters": {
+        "bucket": {
+          "parameterType": "STRING"
+        },
+        "proyecto": {
+          "parameterType": "STRING"
+        },
+        "tabla_bq": {
+          "parameterType": "STRING"
+        }
+      }
+    }
+  },
+  "schemaVersion": "2.1.0",
+  "sdkVersion": "kfp-2.18.0"
+}

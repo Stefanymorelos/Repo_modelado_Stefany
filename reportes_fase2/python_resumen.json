@@ -1,0 +1,31 @@
+{
+  "duracion_total_s": 169.4,
+  "mejor_modelo": "regresion_logistica",
+  "modelos": {
+    "regresion_logistica": {
+      "roc_auc_cv_media": 0.6566,
+      "roc_auc_cv_std": 0.0339,
+      "tiempo_ajuste_s": 0.07
+    },
+    "random_forest": {
+      "roc_auc_cv_media": 0.6442,
+      "roc_auc_cv_std": 0.0422,
+      "tiempo_ajuste_s": 1.06
+    },
+    "svm_rbf": {
+      "roc_auc_cv_media": 0.6413,
+      "roc_auc_cv_std": 0.0407,
+      "tiempo_ajuste_s": 12.0
+    },
+    "gradient_boosting": {
+      "roc_auc_cv_media": 0.6337,
+      "roc_auc_cv_std": 0.0371,
+      "tiempo_ajuste_s": 2.17
+    },
+    "modelo_heuristico": {
+      "roc_auc_cv_media": 0.6456,
+      "roc_auc_cv_std": 0.0198,
+      "tiempo_ajuste_s": 0.04
+    }
+  }
+}

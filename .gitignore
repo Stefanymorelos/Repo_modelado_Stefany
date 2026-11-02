@@ -27,3 +27,8 @@ htmlcov/
 
 # Salidas del pipeline de Jenkins (metricas y modelo)
 reportes/
+
+# Fase 2: la tabla con los datos completos no se sube (la fuente es BigQuery)
+reportes_fase2/tabla_vertex.csv
+reportes_fase2/*_crudo.csv
+reportes_fase2/*predicciones*.csv

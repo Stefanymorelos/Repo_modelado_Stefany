@@ -1,0 +1,5 @@
+# Dependencias adicionales para la Fase 2 (Vertex AI). Se instalan aparte:
+#   pip install -r vertex/requirements-vertex.txt
+kfp>=2.7
+google-cloud-aiplatform
+google-cloud-storage
