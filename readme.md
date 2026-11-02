@@ -253,3 +253,5 @@ Actions), no el módulo en sí.*
 - Por eso, el modelo se recomienda como **apoyo a la decisión y priorización de revisión manual**,
   no como aprobación/negación automática — la misma conclusión honesta a la que llegó el análisis
   más riguroso que revisamos de un compañero del curso.
+
+> Pipeline de Jenkins verificado: se dispara autom�ticamente con cada merge a master.
