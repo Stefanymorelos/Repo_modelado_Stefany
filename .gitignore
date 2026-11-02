@@ -24,3 +24,6 @@ Thumbs.db
 coverage.xml
 .pytest_cache/
 htmlcov/
+
+# Salidas del pipeline de Jenkins (metricas y modelo)
+reportes/
